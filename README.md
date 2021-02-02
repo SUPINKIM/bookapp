@@ -10,3 +10,4 @@ Searching for libraries or bookstores in Incheon!
 ✅ 직접 라우터를 작성(routers.js)하여 간단한 SPA 구현(상세 정보 노출 시, about 컴포넌트 렌더링)
 
 
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/49034615/106604945-ac510e80-65a3-11eb-85c3-0d98a0dc28b0.gif)
