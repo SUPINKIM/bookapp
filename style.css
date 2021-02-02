@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100%;
+}
+
+.home-navigation {
+  background-color: #0d052e;
+  width: 100%;
+  height: 2.5rem;
+  text-align: left;
+  padding-left: 0.5rem;
+  font-size: 1.2em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  color: whitesmoke;
+  position: fixed;
+  top: 1px;
+  z-index: 3;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  /*background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);*/
+  z-index: -1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  column-gap: 3%;
+  padding-top: 5%;
+  margin-top: 2em;
+}
+
+.searchBookstore {
+  width: 850px;
+  height: 200px;
+  padding: 1em 0;
+  min-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1%;
+  border-radius: 4px;
+  row-gap: 18px;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.2);
+  z-index: 2;
+  padding: 0 1.5em;
+}
+
+.searchBookstore label {
+  font-size: 1.2rem;
+  font-weight: 400;
+  width: fit-content;
+}
+
+.searchBookstore input {
+  all: unset;
+  width: 380px;
+  height: 30px;
+  background-color: transparent;
+  font-size: 0.9em;
+  border: 1px solid #ffaf7b;
+  border-radius: 4px;
+  padding-left: 4px;
+  vertical-align: middle;
+}
+
+#searchBnt {
+  all: unset;
+  width: 60px;
+  height: 30px;
+  font-size: 0.9em;
+  color: #0d052e;
+  background-color: transparent;
+  border: 1px solid #ffaf7b;
+  border-radius: 4px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+#searchBnt:hover {
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+}
+
+.print {
+  width: 100%;
+  height: 100vh;
+}
+
+.result {
+  width: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 2;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  row-gap: 0.5em;
+}
+
+.show {
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.2);
+  border-radius: 4px;
+  opacity: 0.9;
+}
+
+.result div:first-child {
+  width: fit-content;
+  height: 20px;
+  margin-top: 1em;
+}
+
+.bookList {
+  width: 410px;
+  height: 100%;
+  overflow: scroll;
+  position: relative;
+}
+
+.bookList ul li {
+  margin: 8px 8px;
+  padding-top: 0.5em;
+  text-align: center;
+}
+
+.bookList ul li a {
+  all: unset;
+  cursor: pointer;
+  color: #0d052e;
+}
+
+.bookList ul li a:hover {
+  color: #ffaf7b;
+}
+
+.home-img {
+  width: 85%;
+  height: 100%;
+  position: relative;
+  top: -80%;
+  left: -40%;
+  z-index: -1;
+}
+
+.home-img img {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.about {
+  width: 650px;
+  height: 250px;
+  background-color: white;
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.2);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  position: relative;
+  top: 10%;
+  left: 20%;
+}
+
+#back {
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 1em;
+}
+
+#back a {
+  all: unset;
+  font-size: 1.5em;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  section {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1em;
+  }
+  .searchBookstore {
+    width: 600px;
+    padding: 1em 1.5em;
+  }
+  .home-img {
+    width: 85%;
+    height: 100%;
+    position: relative;
+    top: -80%;
+    left: 10%;
+  }
+  #back {
+    position: relative;
+    left: -45%;
+  }
+  .about {
+    width: 300px;
+    height: 300px;
+    left: -1%;
+  }
+}
