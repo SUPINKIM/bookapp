@@ -1,7 +1,15 @@
-function getBookdata(target) {
+function getBookInfo() {
   const url =
     'https://imap.incheon.go.kr/arcgis28/rest/services/IUIS/IncheonBookMap/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json';
 
+  const res = fetch(url)
+    .then((resolve) => resolve.json())
+    .catch((reject) => new Error(reject));
+
+  return res;
+}
+
+function getBookdata(target) {
   const listBox = document.querySelector('ul');
   const result = document.querySelector('.result');
   result.classList.add('show');
@@ -12,8 +20,8 @@ function getBookdata(target) {
     listBox.removeChild(listBox.firstChild);
   }
 
-  const res = fetch(url)
-    .then((response) => response.json())
+  const bookData = getBookInfo();
+  bookData
     .then((resolve) => {
       result.firstElementChild.innerText = `📚 검색하신 '${target}'에 대한 검색 결과입니다.`;
 
@@ -31,18 +39,7 @@ function getBookdata(target) {
         : (searchResult.innerHTML = `...총 ${listBox.childElementCount}개 검색되었습니다. `);
       listBox.appendChild(searchResult);
     })
-    .catch((error) => new Error(error));
-}
-
-function getBookInfo() {
-  const url =
-    'https://imap.incheon.go.kr/arcgis28/rest/services/IUIS/IncheonBookMap/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json';
-
-  const res = fetch(url)
-    .then((resolve) => resolve.json())
     .catch((reject) => new Error(reject));
-
-  return res;
 }
 
 export { getBookdata, getBookInfo };
