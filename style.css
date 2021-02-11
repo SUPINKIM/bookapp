@@ -1,226 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+:root {
+  --primary-color: #1e88e5;
+  --dark-color: #005cb2;
+  --ligth-color: #6ab7ff;
+  --secondary-color: #bbdefb;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
 body {
-  width: 100vw;
-  height: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #333;
+  line-height: 1.6;
 }
 
-.home-navigation {
-  background-color: #0d052e;
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+p {
+  margin: 10px 0;
+}
+
+h1,
+h2 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 10px;
+}
+
+img {
   width: 100%;
-  height: 2.5rem;
-  text-align: left;
-  padding-left: 0.5rem;
-  font-size: 1.2em;
-  font-weight: 500;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px;
+}
+
+.flex {
   display: flex;
+  justify-content: center;
   align-items: center;
-  color: whitesmoke;
-  position: fixed;
-  top: 1px;
-  z-index: 3;
+  height: 100%;
 }
 
-section {
-  width: 100%;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  /*background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);*/
-  z-index: -1;
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+}
+
+.btn {
+  background-color: var(--dark-color);
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  text-align: center;
+  padding: 10px 30px;
+  border: none;
+  display: inline-block;
+}
+
+.btn-linenone {
+  background-color: transparent;
+  color: var(--dark-color);
+}
+
+.btn:hover {
+  transform: scale(0.98);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Margin */
+.my-1 {
+  margin: 1rem 0;
+}
+
+.my-2 {
+  margin: 1.5rem 0;
+}
+.my-3 {
+  margin: 2rem 0;
+}
+.my-4 {
+  margin: 3rem 0;
+}
+
+/* navbar */
+.navbar {
+  background-color: var(--primary-color);
+  height: 70px;
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
+.navbar .flex {
+  justify-content: space-between;
+}
+.navbar ul {
   display: flex;
-  flex-direction: row;
+}
+
+.navbar a {
+  color: #fff;
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.navbar a:hover {
+  border-bottom: 2px #fff solid;
+}
+
+/* Intro & Search */
+
+.intro {
+  height: 400px;
+  background-color: var(--primary-color);
+  color: #fff;
+  position: relative;
+}
+
+.intro h3 {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.intro p {
+  font-size: 1rem;
+  margin: 20px 0;
+}
+
+.intro .grid {
+  grid-template-columns: 55% auto;
+  gap: 30px;
+  overflow: visible;
+}
+
+.intro-text {
+  text-align: center;
+}
+
+.search-form {
+  position: relative;
+  top: 40px;
+  height: 380px;
+  width: 400px;
+  padding: 40px;
+  z-index: 100;
+  justify-content: flex-end;
+}
+
+.notice {
+  animation: wiggle 1s ease-in;
+}
+
+.search-form .form-control {
+  margin: 30px 0;
+}
+
+.search-form input[type='text'] {
+  border: none;
+  border-bottom: 2px #d8d6d6 solid;
+  width: 100%;
+  padding: 3px;
+  font-size: 1rem;
+}
+
+.search-form input:focus {
+  outline: none;
+}
+
+.form-img {
+  position: relative;
+  top: -15px;
+  width: 290px;
+}
+
+/* Listbox */
+
+.listbox {
+  padding-top: 80px;
+}
+.listbox .result-box {
   align-items: flex-start;
-  flex-wrap: nowrap;
-  column-gap: 3%;
-  padding-top: 5%;
-  margin-top: 2em;
 }
 
-.searchBookstore {
-  width: 850px;
-  height: 200px;
-  padding: 1em 0;
-  min-width: fit-content;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 1%;
-  border-radius: 4px;
-  row-gap: 18px;
-  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-    0 15px 40px rgba(166, 173, 201, 0.2);
-  z-index: 2;
-  padding: 0 1.5em;
-}
-
-.searchBookstore label {
+.listbox h3 {
   font-size: 1.2rem;
-  font-weight: 400;
-  width: fit-content;
+  font-weight: 200;
 }
 
-.searchBookstore input {
-  all: unset;
-  width: 380px;
-  height: 30px;
-  background-color: transparent;
-  font-size: 0.9em;
-  border: 1px solid #ffaf7b;
-  border-radius: 4px;
-  padding-left: 4px;
-  vertical-align: middle;
-}
-
-#searchBnt {
-  all: unset;
-  width: 60px;
-  height: 30px;
-  font-size: 0.9em;
-  color: #0d052e;
-  background-color: transparent;
-  border: 1px solid #ffaf7b;
-  border-radius: 4px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-}
-
-#searchBnt:hover {
-  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
-}
-
-.print {
-  width: 100%;
-  height: 100vh;
-}
-
-.result {
-  width: 600px;
-  height: 100%;
-  display: flex;
+.listbox .card {
+  height: fit-content;
+  font-size: 0.9rem;
+  align-items: flex-start;
+  justify-content: space-between;
   flex-direction: column;
+}
+
+.listbox .loading {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--ligth-color);
+  border-radius: 50%;
+  border-top-color: var(--secondary-color);
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+.listbox .info {
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-start;
-  z-index: 2;
-  position: relative;
+  font-size: 1rem;
+}
+
+.listbox .nothing {
+  position: absolute;
+  top: 70%;
   left: 50%;
-  transform: translateX(-50%);
-  row-gap: 0.5em;
+  transform: translate(-50%, -50%);
 }
 
-.show {
-  background-color: white;
-  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-    0 15px 40px rgba(166, 173, 201, 0.2);
-  border-radius: 4px;
-  opacity: 0.9;
-}
-
-.result div:first-child {
-  width: fit-content;
-  height: 20px;
-  margin-top: 1em;
-}
-
-.bookList {
-  width: 410px;
-  height: 100%;
-  overflow: scroll;
-  position: relative;
-}
-
-.bookList ul li {
-  margin: 8px 8px;
-  padding-top: 0.5em;
-  text-align: center;
-}
-
-.bookList ul li a {
-  all: unset;
-  cursor: pointer;
-  color: #0d052e;
-}
-
-.bookList ul li a:hover {
-  color: #ffaf7b;
-}
-
-.home-img {
-  width: 85%;
-  height: 100%;
-  position: relative;
-  top: -80%;
-  left: -40%;
-  z-index: -1;
-}
-
-.home-img img {
+.info .about {
   width: 100%;
-  height: 100%;
-  z-index: -1;
 }
 
-.about {
-  width: 650px;
-  height: 250px;
-  background-color: white;
-  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
-    0 15px 40px rgba(166, 173, 201, 0.2);
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 10px;
-  position: relative;
-  top: 10%;
-  left: 20%;
+/* Map */
+.mapbox {
+  padding-top: 40px;
+  height: 400px;
 }
 
-#back {
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  vertical-align: middle;
-  margin: 0 1em;
+.mapbox .container {
+  width: 100%;
+  height: auto;
 }
 
-#back a {
-  all: unset;
-  font-size: 1.5em;
-  font-weight: 400;
-  cursor: pointer;
+.mapbox .map-area {
+  width: 800px;
+  height: 300px;
+  left: 10%;
 }
 
-@media screen and (max-width: 700px) {
-  section {
-    flex-direction: column;
-    align-items: center;
-    row-gap: 1em;
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
   }
-  .searchBookstore {
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideFromBottom {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  75% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0%);
+  }
+}
+
+@media (max-width: 780px) {
+  .intro {
+    height: auto;
+  }
+
+  .intro-text {
+    margin-top: 40px;
+  }
+
+  .grid,
+  .intro .grid,
+  .listbox .grid {
+    grid-template-columns: 1fr;
+  }
+  .search-form {
+    width: 450px;
+    justify-self: center;
+  }
+  .form-img {
+    position: relative;
+    top: -15px;
+    left: 15px;
+  }
+
+  .listbox .nothing {
+    position: relative;
+    text-align: center;
+    top: -20%;
+  }
+
+  .mapbox .map-area {
     width: 600px;
-    padding: 1em 1.5em;
-  }
-  .home-img {
-    width: 85%;
-    height: 100%;
-    position: relative;
-    top: -80%;
-    left: 10%;
-  }
-  #back {
-    position: relative;
-    left: -45%;
-  }
-  .about {
-    width: 300px;
     height: 300px;
-    left: -1%;
+    left: 0;
+  }
+}
+@media (max-width: 500px) {
+  .navbar {
+    height: auto;
+    padding: 5px 0;
+  }
+
+  .navbar .flex {
+    flex-direction: column;
+  }
+  .navbar ul {
+    margin: 10px 0;
+    padding: 10px 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .mapbox .map-area {
+    width: 430px;
+    height: 300px;
+    left: 0;
   }
 }

@@ -10,34 +10,70 @@ function getBookInfo() {
 }
 
 function getBookdata(target) {
-  const listBox = document.querySelector('ul');
-  const result = document.querySelector('.result');
-  result.classList.add('show');
+  const listbox = document.querySelector('.listbox'),
+    resultbox = listbox.querySelector('.result-box'),
+    listHead = listbox.querySelector('h3');
 
-  result.firstElementChild.innerText = `Loading...🔄`;
+  listHead.innerHTML = '<div class="loading"></div>';
 
-  while (listBox.hasChildNodes()) {
-    listBox.removeChild(listBox.firstChild);
+  while (resultbox.hasChildNodes()) {
+    resultbox.removeChild(resultbox.firstChild);
   }
 
   const bookData = getBookInfo();
   bookData
     .then((resolve) => {
-      result.firstElementChild.innerText = `📚 검색하신 '${target}'에 대한 검색 결과입니다.`;
+      listHead.innerText = `📚 검색하신 '${target}'에 대한 검색 결과입니다.`;
 
       resolve.features.forEach((bookStore, index) => {
-        let listItem = document.createElement('li');
+        let listItems = document.createElement('div'),
+          listItem = document.createElement('div');
+        listItems.classList.add('card');
+        listItems.classList.add('flex');
+
+        listItem.classList.add('flex');
+        listItem.classList.add('info');
         if (bookStore.attributes.구분.includes(target) && target !== '') {
-          listItem.innerHTML = `<a href="#about:${index}">${bookStore.attributes.이름}</a>`;
-          listBox.appendChild(listItem);
+          listItem.innerHTML += `<span">${bookStore.attributes.이름}</span>`;
+          listItem.innerHTML += `<div class="btn btn-linenone"> ▼ </div>`;
+          let about = document.createElement('div');
+          about.classList.add('about');
+          about.innerHTML += bookStore.attributes.운영시간
+            ? `<div>운영시간 : ${bookStore.attributes.운영시간}</div>`
+            : `<div>운영시간 정보 없음</div>`;
+          about.innerHTML += bookStore.attributes.전화번호
+            ? `<div>📞 ${bookStore.attributes.전화번호}</div>`
+            : `<div>📞 번호 정보 없음</div>`;
+          about.innerHTML += bookStore.attributes.휴무일
+            ? `<div>${bookStore.attributes.휴무일} 휴무</div>`
+            : `<div>휴무 정보 없음</div>`;
+          about.classList.add('hidden');
+          listItems.appendChild(listItem);
+          listItems.appendChild(about);
+          resultbox.appendChild(listItems);
         }
       });
 
-      let searchResult = document.createElement('li');
-      !listBox.hasChildNodes()
-        ? (searchResult.innerHTML = `...검색 결과가 없습니다. 다른 검색어를 입력해주세요.`)
-        : (searchResult.innerHTML = `...총 ${listBox.childElementCount}개 검색되었습니다. `);
-      listBox.appendChild(searchResult);
+      let searchResult = document.createElement('div');
+      searchResult.classList.add('nothing');
+      if (!resultbox.hasChildNodes()) {
+        searchResult.innerHTML =
+          '검색 결과가 없습니다. 다른 검색어를 입력해주세요.';
+        resultbox.appendChild(searchResult);
+      }
+
+      const moreBtn = listbox.getElementsByClassName('btn');
+      for (let i = 0; i < moreBtn.length; i++) {
+        moreBtn[i].addEventListener(
+          'click',
+          (e) => {
+            let findHidden = e.target.parentNode.nextElementSibling;
+            findHidden.classList.toggle('hidden');
+            e.target.innerText = e.target.innerText === '▼' ? '▲' : '▼';
+          },
+          false
+        );
+      }
     })
     .catch((reject) => new Error(reject));
 }

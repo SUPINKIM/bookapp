@@ -1,9 +1,21 @@
 import { getBookdata } from './book.js';
 
-async function getMatch(e) {
+const body = document.querySelector('body');
+const search = body.querySelector('form'),
+  input = search.querySelector('input');
+
+function getMatch(e) {
   e.preventDefault();
-  const targetLocal = document.getElementById('searchBar').value;
-  return getBookdata(targetLocal);
+  let targetLocal = input.value;
+  input.value = '';
+  if (targetLocal) {
+    return getBookdata(targetLocal);
+  } else {
+    search.parentNode.classList.add('notice');
+    setTimeout(() => {
+      search.parentNode.classList.remove('notice');
+    }, 1000);
+  }
 }
 
 export default getMatch;
