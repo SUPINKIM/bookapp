@@ -19,3 +19,5 @@ Searching for libraries or bookstores in Incheon!
 ✅  HTML / CSS 전체 수정 : 시맨틱 마크업 준수 / 전반적인 화면 레이아웃 변경 및 애니메이션 효과 추가(검색 시에 검색어를 입력하지 않은 경우 입력 폼이 흔들리는 애니메이션)
 
 ![Kapture 2021-02-12 at 02 28 00](https://user-images.githubusercontent.com/49034615/107674154-022b6200-6cda-11eb-99c3-ca2b07d6249e.gif)
+
+![Kapture 2021-02-12 at 02 38 58](https://user-images.githubusercontent.com/49034615/107675523-8205fc00-6cdb-11eb-94e8-eb0ff38aa075.gif)
